@@ -23,16 +23,6 @@ input.onGesture(Gesture.ScreenDown, function () {
     pitch += -1
     basic.showNumber(pitch)
 })
-// on button A+B, resets program to 0
-input.onButtonPressed(Button.AB, function () {
-    basic.showIcon(IconNames.Square)
-    basic.showIcon(IconNames.SmallSquare)
-    basic.showIcon(IconNames.Square)
-    pitch = 0
-    basic.showNumber(pitch)
-    strike = 0
-    basic.showNumber(strike)
-})
 // on button B, strike goes up by 1
 input.onButtonPressed(Button.B, function () {
     basic.showString("S")
@@ -44,6 +34,16 @@ input.onButtonPressed(Button.B, function () {
         # # # # #
         `)
     strike += 1
+    basic.showNumber(strike)
+})
+// on shake, resets program to 0
+input.onGesture(Gesture.Shake, function () {
+    basic.showIcon(IconNames.Square)
+    basic.showIcon(IconNames.SmallSquare)
+    basic.showIcon(IconNames.Square)
+    pitch = 0
+    basic.showNumber(pitch)
+    strike = 0
     basic.showNumber(strike)
 })
 // on logo down, strike goes down by 1
